@@ -1,0 +1,236 @@
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+  background-color: #f7e4e4;
+  position: relative;
+  overflow: hidden;
+}
+
+.App {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 2; /* Ensure content stays above the bubbles */
+}
+
+
+h1 {
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.card-count {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Flashcard styles */
+.flashcard-container {
+  perspective: 1000px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 500px;
+  cursor: pointer;
+}
+
+.flashcard {
+  width: 100%;
+  height: 250px;
+  border-radius: 15px;
+  background-color:pink;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard .front,
+.flashcard .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.flashcard .front {
+  background-color: pink;
+}
+
+.flashcard .back {
+  background-color:pink;
+  transform: rotateY(180deg);
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.arrow-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.arrow-button:hover {
+  background-color: #ff3366;
+}
+
+/* Shuffle button */
+.shuffle-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.shuffle-button:hover {
+  background-color: #ff3366;
+}
+
+/* Guess section */
+.guess-section {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guess-section label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.guess-section input {
+  padding: 10px;
+  width: 60%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ff3366;
+}
+
+/* Create blurry background and floating multicolor bubbles */
+.background-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind everything */
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+.bubble-1 {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #ff7a18, #af002d, #320a36);
+  top: 20%;
+  left: 10%;
+}
+
+.bubble-2 {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(45deg, #00b4d8, #0096c7, #0077b6);
+  top: 50%;
+  left: 30%;
+}
+
+.bubble-3 {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, #ff9a8b, #ff6a88, #d16ba5);
+  top: 60%;
+  left: 50%;
+}
+
+.bubble-4 {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(45deg, #a8e063, #56ab2f, #7b9a92);
+  top: 30%;
+  left: 70%;
+}
+
+.bubble-5 {
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(45deg, #f5a623, #d0021b, #8b572a);
+  top: 80%;
+  left: 80%;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
